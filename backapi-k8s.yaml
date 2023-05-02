@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: backapi-k8s-deployment
+  labels:
+    app: backapi-k8s
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backapi-k8s
+  template:
+    metadata:
+      labels:
+        app:backapi-k8s
+      spec:
+        containers:
+          -name : backapi-k8s
+          image: ranrakes/backapi
+          ports:
+            - containerPort: 8080
